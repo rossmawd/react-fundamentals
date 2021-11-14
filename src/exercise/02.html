@@ -9,10 +9,20 @@
   <script type="module">
     const rootElement = document.getElementById('root')
 
-    const elementProps = {children: 'Hello, working?!', className: 'container'}
-    const elementType = 'p'
+    const spanOneProps = {children: 'Hello'}
+    const spanType = 'span'
+    const spanOneElement = React.createElement(spanType, spanOneProps)
+    const spanTwoProps = {children: 'Moto'}
+    const spanTwoElement = React.createElement(spanType, spanTwoProps)
+
+    const elementProps = {
+      children: [spanOneElement, spanTwoElement],
+      className: 'container',
+    }
+    const elementType = 'div'
 
     const reactElement = React.createElement(elementType, elementProps)
+
     ReactDOM.render(reactElement, rootElement)
 
     //BELOW - the non-react way of doing this:
